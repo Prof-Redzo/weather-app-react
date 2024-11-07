@@ -3,6 +3,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -17,6 +18,7 @@ html, body, .root {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 h1 {
@@ -37,9 +39,11 @@ h1 {
   margin-left: 10px;
   height: 39px;
 }
+
 .primary:hover {
   border-color: #646cff;
 }
+
 .primary:focus,
 .primary:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -55,4 +59,54 @@ h1 {
 .city-input:focus {
   outline: none;
   border-color: #646cff;
+}
+
+.weather-card {
+  border: 1px solid #d3cfc1c4;
+  border-radius: 40px;
+  margin-top: 20px;
+  min-height: 300px;
+  padding: 10px;
+  background: rgb(7, 19, 62);    background: linear-gradient(73deg, rgba(7, 19, 62, 1) 10%, rgba(7, 43, 144, 1) 44%, rgba(0, 212, 255, 1) 100%);
+  color: white;
+}
+
+.weather-name {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.weather-temp {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.weather-temp-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather-desc {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.temp-max-min-wrapper {
+  text-align: end;
+  font-size: 18px;
+}
+
+.additional-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-button:disabled {
+  cursor: not-allowed;
+}
+
+.search:active:disabled {
+  cursor: not-allowed;
 }

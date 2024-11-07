@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+import WeatherCard from "./WeatherCard";
+
 const Weather = () => {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
@@ -11,9 +13,8 @@ const Weather = () => {
 
   const getWeatherForCity = async () => {
     const result = await axios.get(
-      "https://api.openweathermap.org/data/2.5/weather?q=Mostar&appid=83cb4a10bb1a07736569a716dd5e7c3b&units=metric"
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_WEATHER_API_KEY}&units=metric`
     );
-    console.log(result);
 
     //if (result && result.data && result.data.name) == if(result?.data?.name)
     if (result?.data) {
@@ -29,10 +30,16 @@ const Weather = () => {
         placeholder="Search city"
         value={city}
         onChange={(e) => handleChange(e)}
+        onKeyDown={(e) => {
+          if (/^\d$/.test(e.key)) {
+            e.preventDefault();
+        }
+        }}
       />
-      <button className="primary" onClick={() => getWeatherForCity()}>
+      <button className="primary search-button" disabled={!city} onClick={() => getWeatherForCity()}>
         Search
       </button>
+      {weatherData && <WeatherCard weatherData={weatherData} />}
     </div>
   );
 };
